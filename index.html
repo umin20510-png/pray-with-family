@@ -5,64 +5,41 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0"/>
 <title>우리 가족 기도방 🏠</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet"/>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --cream:#FAF7F2;
-  --warm:#F2EDE4;
-  --stone:#E8E0D4;
-  --bark:#8B7355;
-  --soil:#5C4A32;
-  --leaf:#4A7C59;
-  --leaf-light:#E8F2EB;
-  --sky:#4A6FA5;
-  --sky-light:#E8EEF6;
-  --gold:#C49A3C;
-  --gold-light:#FDF5E0;
-  --text:#2C2419;
-  --muted:#9A8B78;
-  --border:#DDD5C8;
+  --cream:#FAF7F2;--warm:#F2EDE4;--stone:#E8E0D4;--bark:#8B7355;--soil:#5C4A32;
+  --leaf:#4A7C59;--leaf-light:#E8F2EB;--sky:#4A6FA5;--sky-light:#E8EEF6;
+  --gold:#C49A3C;--gold-light:#FDF5E0;--text:#2C2419;--muted:#9A8B78;--border:#DDD5C8;
   --r:16px;--rs:10px;
 }
 html,body{background:var(--cream);font-family:'Noto Sans KR',sans-serif;color:var(--text);min-height:100vh;-webkit-text-size-adjust:100%}
-
-/* 배경 텍스처 */
-body::before{content:'';position:fixed;inset:0;background:
-  radial-gradient(ellipse at 20% 20%,rgba(196,154,60,.06) 0%,transparent 50%),
-  radial-gradient(ellipse at 80% 80%,rgba(74,124,89,.06) 0%,transparent 50%);
-  pointer-events:none;z-index:0}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 20% 20%,rgba(196,154,60,.06) 0%,transparent 50%),radial-gradient(ellipse at 80% 80%,rgba(74,124,89,.06) 0%,transparent 50%);pointer-events:none;z-index:0}
 
 .wrap{max-width:480px;margin:0 auto;padding:0 16px 100px;position:relative;z-index:1}
-
-/* ── 헤더 ── */
 .hd{text-align:center;padding:44px 0 32px}
 .hd-tag{display:inline-flex;align-items:center;gap:6px;background:var(--gold-light);color:var(--gold);font-size:11px;font-weight:500;padding:4px 12px;border-radius:20px;margin-bottom:16px;border:1px solid rgba(196,154,60,.2);letter-spacing:.05em}
 .hd h1{font-family:'Noto Serif KR',serif;font-size:26px;font-weight:700;color:var(--soil);line-height:1.3;margin-bottom:6px}
 .hd p{font-size:13px;color:var(--muted)}
 
-/* ── 가족 선택 ── */
 .fam-wrap{background:var(--warm);border:1px solid var(--border);border-radius:var(--r);padding:16px;margin-bottom:20px}
 .fam-label{font-size:11px;font-weight:500;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;display:block}
 .fam-chips{display:flex;gap:8px;flex-wrap:wrap}
 .fam-chip{font-size:14px;padding:8px 18px;border-radius:20px;border:1.5px solid var(--border);background:#fff;color:var(--muted);cursor:pointer;transition:all .2s;user-select:none;font-weight:400}
 .fam-chip.on{background:var(--soil);color:#fff;border-color:var(--soil);font-weight:500}
 
-/* ── 탭 ── */
 .tabs{display:flex;gap:0;margin-bottom:24px;background:var(--warm);border:1px solid var(--border);border-radius:var(--r);padding:5px;overflow:hidden}
 .tab{flex:1;text-align:center;padding:10px 4px;font-size:13px;border-radius:12px;cursor:pointer;color:var(--muted);transition:all .2s;user-select:none;line-height:1.3}
 .tab .tab-icon{font-size:16px;display:block;margin-bottom:2px}
 .tab.on{background:#fff;color:var(--soil);font-weight:500;box-shadow:0 2px 8px rgba(92,74,50,.1)}
 
-/* ── 카드 ── */
 .card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;margin-bottom:12px;transition:box-shadow .2s}
 .card:hover{box-shadow:0 4px 16px rgba(92,74,50,.06)}
 .lbl{font-size:11px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;display:block}
 .req{color:var(--gold);margin-left:2px}
 
-input[type=text],textarea,select{
-  width:100%;font-family:'Noto Sans KR',sans-serif;font-size:15px;color:var(--text);
-  background:var(--cream);border:1.5px solid var(--border);border-radius:var(--rs);
-  padding:11px 14px;-webkit-appearance:none;appearance:none;transition:border-color .2s;line-height:1.5}
+input[type=text],textarea,select{width:100%;font-family:'Noto Sans KR',sans-serif;font-size:15px;color:var(--text);background:var(--cream);border:1.5px solid var(--border);border-radius:var(--rs);padding:11px 14px;-webkit-appearance:none;appearance:none;transition:border-color .2s;line-height:1.5}
 input:focus,textarea:focus,select:focus{outline:none;border-color:var(--bark)}
 input::placeholder,textarea::placeholder{color:#C4B9AC}
 textarea{resize:none;line-height:1.65}
@@ -70,28 +47,22 @@ textarea.sm{height:80px}
 textarea.md{height:110px}
 textarea.lg{height:130px}
 
-/* ── 버튼 ── */
 .btn-main{width:100%;padding:14px;font-size:15px;font-weight:500;font-family:'Noto Sans KR',sans-serif;background:var(--soil);color:#fff;border:none;border-radius:var(--r);cursor:pointer;margin-top:4px;transition:opacity .15s,transform .1s;letter-spacing:.01em}
 .btn-main:hover{opacity:.88}.btn-main:active{transform:scale(.98)}.btn-main:disabled{opacity:.4;cursor:not-allowed}
-
 .btn-leaf{background:var(--leaf)}.btn-sky{background:var(--sky)}.btn-gold{background:var(--gold)}
 
-.out-btn{display:inline-block;padding:9px 22px;font-size:13px;font-family:'Noto Sans KR',sans-serif;background:transparent;color:var(--soil);border:1.5px solid var(--soil);border-radius:24px;cursor:pointer;transition:all .15s}
-.out-btn:hover{background:var(--warm)}
-
-/* ── 성공 ── */
 .ok{display:none;text-align:center;padding:44px 0 28px}
 .ok-icon{font-size:48px;margin-bottom:14px;display:block}
 .ok h2{font-family:'Noto Serif KR',serif;font-size:22px;color:var(--soil);margin-bottom:8px}
 .ok p{font-size:14px;color:var(--muted);margin-bottom:24px}
+.out-btn{display:inline-block;padding:9px 22px;font-size:13px;font-family:'Noto Sans KR',sans-serif;background:transparent;color:var(--soil);border:1.5px solid var(--soil);border-radius:24px;cursor:pointer;transition:all .15s}
+.out-btn:hover{background:var(--warm)}
 
-/* ── 목록 툴바 ── */
 .lt{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:8px}
 .lc{font-size:13px;color:var(--muted)}
 .ic-btn{font-size:12px;padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:#fff;color:var(--muted);cursor:pointer;font-family:'Noto Sans KR',sans-serif;transition:all .15s}
 .ic-btn:hover{border-color:var(--bark);color:var(--bark)}
 
-/* ── 기도제목 아이템 ── */
 .pi{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;margin-bottom:10px;animation:fu .25s ease both;transition:all .2s}
 .pi.answered{background:var(--leaf-light);border-color:rgba(74,124,89,.25)}
 .pi-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:8px}
@@ -104,9 +75,7 @@ textarea.lg{height:130px}
 .ans-btn.done{background:var(--leaf);color:#fff;border-color:var(--leaf)}
 .ans-tag{font-size:11px;background:var(--leaf-light);color:var(--leaf);padding:2px 9px;border-radius:20px;border:1px solid rgba(74,124,89,.2)}
 
-/* ── 감사 아이템 ── */
 .gi{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:16px 18px;margin-bottom:10px;animation:fu .25s ease both}
-.gi-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
 .gi-date-group{font-family:'Noto Serif KR',serif;font-size:13px;color:var(--bark);font-weight:600;margin:18px 0 8px;padding-bottom:6px;border-bottom:1px solid var(--stone)}
 .gi-entry{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid var(--warm)}
 .gi-entry:last-child{border-bottom:none}
@@ -115,7 +84,6 @@ textarea.lg{height:130px}
 .gi-who{font-size:11px;color:var(--muted);margin-bottom:2px}
 .gi-content{font-size:14px;line-height:1.6;color:var(--text)}
 
-/* ── 말씀묵상 아이템 ── */
 .mi{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:18px 20px;margin-bottom:12px;animation:fu .25s ease both}
 .mi-ref{font-family:'Noto Serif KR',serif;font-size:13px;color:var(--sky);font-weight:600;margin-bottom:8px}
 .mi-verse{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:12px;padding:10px 14px;background:var(--sky-light);border-radius:var(--rs);border-left:3px solid var(--sky)}
@@ -123,11 +91,9 @@ textarea.lg{height:130px}
 .mi-footer{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
 .mi-who{display:flex;align-items:center;gap:6px}
 
-/* ── 빈 상태 ── */
 .empty{text-align:center;padding:48px 0;color:var(--muted);font-size:14px;line-height:1.9}
 .empty-icon{font-size:36px;display:block;margin-bottom:12px;opacity:.5}
 
-/* ── 모달 ── */
 .modal-bg{display:none;position:fixed;inset:0;background:rgba(44,36,25,.4);z-index:200;align-items:center;justify-content:center;padding:20px}
 .modal-bg.open{display:flex}
 .modal{background:#fff;border-radius:var(--r);padding:28px 22px 22px;width:100%;max-width:300px;box-shadow:0 20px 60px rgba(44,36,25,.2)}
@@ -144,28 +110,24 @@ textarea.lg{height:130px}
 </head>
 <body>
 
-<!-- 응답 확인 모달 -->
 <div class="modal-bg" id="mAns">
   <div class="modal">
     <h3>🙌 응답받으셨나요?</h3>
     <p id="mAnsMsg">이 기도제목을 응답됨으로 표시할까요?</p>
     <div class="mbtns">
       <button class="m-cancel" id="btnAnsNo">아직요</button>
-      <button class="m-leaf"   id="btnAnsYes">응답됐어요!</button>
+      <button class="m-leaf" id="btnAnsYes">응답됐어요!</button>
     </div>
   </div>
 </div>
 
 <div class="wrap">
-
-  <!-- 헤더 -->
   <div class="hd">
     <div class="hd-tag">🏠 우리 가족 기도방</div>
     <h1>함께 기도하고<br>감사해요</h1>
     <p id="todayDate"></p>
   </div>
 
-  <!-- 가족 선택 -->
   <div class="fam-wrap">
     <span class="fam-label">나는 누구예요?</span>
     <div class="fam-chips">
@@ -176,14 +138,12 @@ textarea.lg{height:130px}
     </div>
   </div>
 
-  <!-- 탭 -->
   <div class="tabs">
     <div class="tab on" id="tab0"><span class="tab-icon">🙏</span>기도제목</div>
-    <div class="tab"    id="tab1"><span class="tab-icon">🌱</span>감사일기</div>
-    <div class="tab"    id="tab2"><span class="tab-icon">📖</span>말씀묵상</div>
+    <div class="tab" id="tab1"><span class="tab-icon">🌱</span>감사일기</div>
+    <div class="tab" id="tab2"><span class="tab-icon">📖</span>말씀묵상</div>
   </div>
 
-  <!-- ══ 기도제목 탭 ══ -->
   <div id="page0">
     <div id="prayForm">
       <div class="card">
@@ -198,13 +158,11 @@ textarea.lg{height:130px}
       <p>기도제목이 올라갔어요</p>
       <button class="out-btn" id="btnPrayReset">더 올리기</button>
     </div>
-
     <div style="margin-top:24px">
       <div class="lt">
         <span class="lc" id="prayCount">불러오는 중...</span>
         <button class="ic-btn" id="btnPrayRefresh">↻ 새로고침</button>
       </div>
-      <!-- 탭: 기도중 / 응답됨 -->
       <div style="display:flex;gap:8px;margin-bottom:14px">
         <button class="ic-btn on" id="btnPrayTab0" style="background:var(--soil);color:#fff;border-color:var(--soil)">기도 중</button>
         <button class="ic-btn" id="btnPrayTab1">응답됨 🙌</button>
@@ -213,7 +171,6 @@ textarea.lg{height:130px}
     </div>
   </div>
 
-  <!-- ══ 감사일기 탭 ══ -->
   <div id="page1" style="display:none">
     <div id="thankForm">
       <div class="card">
@@ -228,7 +185,6 @@ textarea.lg{height:130px}
       <p>감사 제목이 올라갔어요</p>
       <button class="out-btn" id="btnThankReset">더 쓰기</button>
     </div>
-
     <div style="margin-top:24px">
       <div class="lt">
         <span class="lc" id="thankCount">불러오는 중...</span>
@@ -238,7 +194,6 @@ textarea.lg{height:130px}
     </div>
   </div>
 
-  <!-- ══ 말씀묵상 탭 ══ -->
   <div id="page2" style="display:none">
     <div id="mediForm">
       <div class="card">
@@ -261,7 +216,6 @@ textarea.lg{height:130px}
       <p>묵상이 올라갔어요</p>
       <button class="out-btn" id="btnMediReset">또 올리기</button>
     </div>
-
     <div style="margin-top:24px">
       <div class="lt">
         <span class="lc" id="mediCount">불러오는 중...</span>
@@ -270,27 +224,22 @@ textarea.lg{height:130px}
       <div id="mediList"><div class="empty"><span class="empty-icon">⏳</span>불러오는 중...</div></div>
     </div>
   </div>
+</div>
 
-</div><!-- /wrap -->
-<script src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
-// ══ 설정 ════════════════════════════────────────
 var SHEET_URL = 'https://script.google.com/macros/s/AKfycbxNDweqGRHUhpUdm92qUrbb2Qoun2sV521VtZHmTsPG7bKNRl1T2jHRaQLXRrXJBESv/exec';
 var SHEET_ID  = '1Ua_hzREeQqZuN3q-0x8oCG-VRmeEDQdZl9l_eMLBC0g';
 
-// ══ 상태 ════════════════════════════════════════
 var myName   = '';
-var prayMode = 'active'; // 'active' | 'answered'
+var prayMode = 'active';
 var allPray  = [], allThank = [], allMedi = [];
 
-// ══ 날짜 표시 ════════════════════════════════════
 (function(){
   var d=new Date(), days=['일','월','화','수','목','금','토'];
   document.getElementById('todayDate').textContent =
     d.getFullYear()+'년 '+(d.getMonth()+1)+'월 '+d.getDate()+'일 ('+days[d.getDay()]+')';
 })();
 
-// ══ 가족 선택 ════════════════════════════════════
 document.querySelectorAll('.fam-chip').forEach(function(c){
   c.addEventListener('click',function(){
     document.querySelectorAll('.fam-chip').forEach(function(x){ x.classList.remove('on'); });
@@ -299,7 +248,6 @@ document.querySelectorAll('.fam-chip').forEach(function(c){
   });
 });
 
-// ══ 탭 전환 ══════════════════════════════════════
 function showPage(n){
   [0,1,2].forEach(function(i){
     document.getElementById('tab'+i).classList.toggle('on', i===n);
@@ -313,26 +261,26 @@ document.getElementById('tab0').addEventListener('click',function(){ showPage(0)
 document.getElementById('tab1').addEventListener('click',function(){ showPage(1); });
 document.getElementById('tab2').addEventListener('click',function(){ showPage(2); });
 
-// ══ 기도제목 탭 전환 (기도중/응답됨) ═══════════════
 document.getElementById('btnPrayTab0').addEventListener('click',function(){
   prayMode='active';
-  this.style.background=getComputedStyle(document.documentElement).getPropertyValue('--soil').trim();
-  this.style.color='#fff'; this.style.borderColor='var(--soil)';
+  this.style.background='var(--soil)';
+  this.style.color='#fff';
+  this.style.borderColor='var(--soil)';
   var b=document.getElementById('btnPrayTab1');
   b.style.background=''; b.style.color=''; b.style.borderColor='';
   renderPray();
 });
 document.getElementById('btnPrayTab1').addEventListener('click',function(){
   prayMode='answered';
-  this.style.background='#4A7C59'; this.style.color='#fff'; this.style.borderColor='#4A7C59';
+  this.style.background='#4A7C59';
+  this.style.color='#fff';
+  this.style.borderColor='#4A7C59';
   var b=document.getElementById('btnPrayTab0');
   b.style.background=''; b.style.color=''; b.style.borderColor='';
   renderPray();
 });
 
-// ══ 유틸 ═════════════════════════════════════════
 function $(id){ return document.getElementById(id); }
-
 function checkName(){
   if(!myName){
     document.querySelectorAll('.fam-chip').forEach(function(c){
@@ -343,41 +291,29 @@ function checkName(){
   }
   return true;
 }
-
 function fmtDate(str){
   if(!str) return '';
   var s=String(str);
-  // gviz Date() 형식 처리
   if(s.indexOf('Date(')!==-1){
     var m=s.match(/Date\((\d+),(\d+),(\d+)/);
     if(m) return m[1]+'.'+(parseInt(m[2])+1)+'.'+m[3];
   }
   return s.slice(0,10).replace(/-/g,'.');
 }
-
 function avatarColor(name){
   var colors=['#8B7355','#4A7C59','#4A6FA5','#C49A3C'];
   var idx={'아빠':0,'엄마':3,'유민':1,'승민':2}[name]||0;
   return colors[idx];
 }
-
-// ══ POST 제출 ════════════════════════════════════
 function postData(payload, onDone){
-  fetch(SHEET_URL,{
-    method:'POST', mode:'no-cors',
-    headers:{'Content-Type':'application/json'},
-    body: JSON.stringify(payload)
-  }).catch(function(){}).finally(onDone);
+  fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).catch(function(){}).finally(onDone);
 }
 
-// ══ GVIZ fetch ═══════════════════════════════════
 function gvizFetch(sheetName, callback){
   var old=document.getElementById('__gviz_'+sheetName);
   if(old) old.remove();
-
   var cbName='__gviz_cb_'+sheetName;
   var timer=setTimeout(function(){ callback(null); },10000);
-
   window[cbName]=function(res){
     clearTimeout(timer);
     try{
@@ -391,21 +327,18 @@ function gvizFetch(sheetName, callback){
       callback(data);
     }catch(e){ callback(null); }
   };
-
   var s=document.createElement('script');
   s.id='__gviz_'+sheetName;
-  s.src='https://docs.google.com/spreadsheets/d/'+SHEET_ID+
-        '/gviz/tq?tqx=out:json&sheet='+encodeURIComponent(sheetName)+'&callback='+cbName+'&t='+Date.now();
+  s.src='https://docs.google.com/spreadsheets/d/'+SHEET_ID+'/gviz/tq?tqx=out:json&sheet='+encodeURIComponent(sheetName)+'&callback='+cbName+'&t='+Date.now();
   document.head.appendChild(s);
 }
 
-// ══ 기도제목 ══════════════════════════════════════
 $('btnPraySubmit').addEventListener('click',function(){
   if(!checkName()) return;
   var text=$('prayText').value.trim();
   if(!text){ $('prayText').style.borderColor='var(--gold)'; $('prayText').focus(); setTimeout(function(){ $('prayText').style.borderColor=''; },1200); return; }
   $('btnPraySubmit').textContent='올리는 중...'; $('btnPraySubmit').disabled=true;
-  postData({sheet:'기도제목', name:myName, text:text, answered:'N', date:new Date().toLocaleDateString('ko-KR')}, function(){
+  postData({sheet:'기도제목',name:myName,text:text,answered:'N',date:new Date().toLocaleDateString('ko-KR')},function(){
     $('btnPraySubmit').textContent='기도제목 올리기'; $('btnPraySubmit').disabled=false;
     $('prayForm').style.display='none'; $('prayOk').style.display='block';
   });
@@ -430,7 +363,6 @@ function renderPray(){
     ? allPray.filter(function(r){ return r.c4!=='Y'; })
     : allPray.filter(function(r){ return r.c4==='Y'; });
   rows = rows.slice().reverse();
-
   $('prayCount').textContent = rows.length+'개의 기도제목';
   if(!rows.length){
     $('prayList').innerHTML='<div class="empty"><span class="empty-icon">'+(prayMode==='active'?'🙏':'🙌')+'</span>'+(prayMode==='active'?'기도제목이 없어요<br>첫 번째로 올려보세요!':'응답된 기도제목이 없어요')+'</div>';
@@ -448,17 +380,16 @@ function renderPray(){
         '</div>'+
         '<div style="display:flex;align-items:center;gap:6px">'+
           '<span class="pi-date">'+fmtDate(p.c0)+'</span>'+
-          (!answered?'<button class="ans-btn" onclick="askAnswered('+p.rowIndex+',\''+p.c2+'\')">응답됐어요</button>':'')+
+          (!answered?'<button class="ans-btn" onclick="askAnswered('+p.rowIndex+',\''+p.c2.slice(0,20)+'\')">응답됐어요</button>':'')+
         '</div>'+
       '</div>'+
       '<p class="pi-text">'+String(p.c2||'').replace(/</g,'&lt;')+'</p>'+
     '</div>';
   }).join('');
 }
-
 function askAnswered(rowIndex, txt){
   pendingAns=rowIndex;
-  $('mAnsMsg').textContent='"'+txt.slice(0,20)+(txt.length>20?'...':'')+'" — 응답됨으로 표시할까요?';
+  $('mAnsMsg').textContent='"'+txt+(txt.length>20?'...':')+'" — 응답됨으로 표시할까요?';
   $('mAns').classList.add('open');
 }
 $('btnAnsNo').addEventListener('click',function(){ $('mAns').classList.remove('open'); pendingAns=null; });
@@ -466,24 +397,21 @@ $('btnAnsYes').addEventListener('click',function(){
   $('mAns').classList.remove('open');
   if(!pendingAns) return;
   var idx=pendingAns; pendingAns=null;
-  // Apps Script에 응답 업데이트 요청
   var s=document.createElement('script');
   s.src=SHEET_URL+'?action=answer&rowIndex='+idx+'&sheet=기도제목&callback=__ansCb&t='+Date.now();
   document.head.appendChild(s);
   window.__ansCb=function(){
-    // 로컬 반영
     allPray.forEach(function(r){ if(r.rowIndex===idx) r.c4='Y'; });
     renderPray();
   };
 });
 
-// ══ 감사일기 ══════════════════════════════════════
 $('btnThankSubmit').addEventListener('click',function(){
   if(!checkName()) return;
   var text=$('thankText').value.trim();
   if(!text){ $('thankText').style.borderColor='var(--leaf)'; $('thankText').focus(); setTimeout(function(){ $('thankText').style.borderColor=''; },1200); return; }
   $('btnThankSubmit').textContent='올리는 중...'; $('btnThankSubmit').disabled=true;
-  postData({sheet:'감사일기', name:myName, text:text, date:new Date().toLocaleDateString('ko-KR')}, function(){
+  postData({sheet:'감사일기',name:myName,text:text,date:new Date().toLocaleDateString('ko-KR')},function(){
     $('btnThankSubmit').textContent='감사 제목 올리기'; $('btnThankSubmit').disabled=false;
     $('thankForm').style.display='none'; $('thankOk').style.display='block';
   });
@@ -509,7 +437,6 @@ function renderThank(){
     $('thankList').innerHTML='<div class="empty"><span class="empty-icon">🌱</span>감사 제목이 없어요<br>오늘 감사한 것을 써봐요!</div>';
     return;
   }
-  // 날짜별 그룹핑
   var groups={}, order=[];
   rows.forEach(function(r){
     var d=fmtDate(r.c0)||'날짜 없음';
@@ -534,14 +461,13 @@ function renderThank(){
   }).join('');
 }
 
-// ══ 말씀묵상 ══════════════════════════════════════
 $('btnMediSubmit').addEventListener('click',function(){
   if(!checkName()) return;
   var ref=$('mediRef').value.trim(), text=$('mediText').value.trim();
   if(!ref){ $('mediRef').style.borderColor='var(--sky)'; $('mediRef').focus(); setTimeout(function(){ $('mediRef').style.borderColor=''; },1200); return; }
   if(!text){ $('mediText').style.borderColor='var(--sky)'; $('mediText').focus(); setTimeout(function(){ $('mediText').style.borderColor=''; },1200); return; }
   $('btnMediSubmit').textContent='올리는 중...'; $('btnMediSubmit').disabled=true;
-  postData({sheet:'말씀묵상', name:myName, ref:ref, verse:$('mediVerse').value.trim(), text:text, date:new Date().toLocaleDateString('ko-KR')}, function(){
+  postData({sheet:'말씀묵상',name:myName,ref:ref,verse:$('mediVerse').value.trim(),text:text,date:new Date().toLocaleDateString('ko-KR')},function(){
     $('btnMediSubmit').textContent='묵상 나누기'; $('btnMediSubmit').disabled=false;
     $('mediForm').style.display='none'; $('mediOk').style.display='block';
   });
@@ -583,7 +509,6 @@ function renderMedi(){
   }).join('');
 }
 
-// ══ 첫 로드 ══════════════════════════════════════
 fetchPray();
 </script>
 </body>
